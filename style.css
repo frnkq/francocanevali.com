@@ -1,0 +1,43 @@
+html, body
+{
+    background-color: black;
+    color: green;
+    font-family: monospace;;
+    font-size: 1.2em;
+    font-weight:bold;
+}
+.asciiart
+{
+    white-space: pre;
+    font-size: 0.6em;
+    font-weight: 900;
+    text-shadow:1px 0 green;
+}
+.separator
+{
+    border-bottom: 3px solid green;
+    height:10px;
+    width:100%;
+    padding:0;
+    margin:0;
+}
+a
+{
+    color: blueviolet;
+    text-decoration: underline;
+
+}
+a:visited
+{
+    color: darkmagenta;
+    text-decoration: underline;
+}
+#me
+{
+    height:600px;
+    max-height:600px;
+    width:auto;
+    background-image: url('me.png');
+    background-position:center;
+    background-repeat: no-repeat;
+}
