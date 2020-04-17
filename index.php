@@ -1,3 +1,39 @@
+<?php
+function listPosts()
+{
+        $files = [];
+        foreach(new DirectoryIterator('./blog/bin') as $f)
+        {
+            if($f->isDot() || strpos($f->getFilename(), "base.html")===0) continue;
+            array_push($files, $f->getFilename());
+        }
+        rsort($files);
+
+        foreach($files as $f)
+        {
+            $dateTitle = explode("__", $f);
+            $date = "[".$dateTitle[0]."]";
+            $title = str_replace("_", " ", $dateTitle[1]);
+            $title = explode(".html", $title)[0];
+            echo 
+                "<a href=/blog/bin/"."$f".">"
+                .$date." ".$title
+                ."</a><br>";
+        }
+}
+
+function showPostsCount()
+{
+        $i = 0;
+        foreach(new DirectoryIterator('./blog') as $f)
+        {
+            if($f->isDot()) continue;
+            $i++;
+        }
+
+        echo $i." post(s)";
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -66,6 +102,12 @@
             gh: <a href="https://github.com/frnkq/" target="_blank">frnkq</a>
             <br>
             <a href="/blog" target="_blank">Blog</a>
+            <div id="blogPosts">
+<div class="col text-right">
+            <?php showPostsCount(); ?>
+</div>
+            <?php listPosts(); ?>
+            </div>
             </div>
 
             </div>

@@ -1,7 +1,7 @@
 html, body
 {
     background-color: black;
-    color: green;
+    color: lime;
     font-family: monospace;;
     font-size: 1.2em;
     font-weight:bold;
@@ -23,13 +23,18 @@ html, body
 }
 a
 {
-    color: blueviolet;
+    color: darkviolet;
     text-decoration: underline;
 
 }
+a:hover
+{
+    color: white;
+    cursor:pointer;
+}
 a:visited
 {
-    color: darkmagenta;
+    color: darkslateblue;
     text-decoration: underline;
 }
 #me
@@ -40,4 +45,24 @@ a:visited
     background-image: url('me.png');
     background-position:center;
     background-repeat: no-repeat;
+}
+
+#blogPosts
+{
+    height: 120px;
+    border:1px dotted green;
+    overflow: auto;
+    padding: 10px;
+    max-width: 500px;
+}
+
+#post
+{
+    font-family:monospace; 
+    padding: 20px;
+}
+#title
+{
+    border-bottom: 1px solid lime;
+    margin-top:10px;
 }
