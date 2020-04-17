@@ -9,6 +9,7 @@ mkdir $POST_DIR
 echo "Copying base to $POST_DIR"
 cp base.html $POST_DIR
 cd $POST_DIR
+mkdir assets
 
 CURRENT_DIRECTORY=`pwd`
 echo "Working on $CURRENT_DIRECTORY"
@@ -44,16 +45,17 @@ while [[ $DEPLOY = ["n"] || $DEPLOY = ["N"] ]]; do
 done
 
 cp "$FILENAME" ../../bin/"$FILENAME"
-cp -v *.jpg ../../bin/assets/
-cp -v *.JPG ../../bin/assets/
-cp -v *.jpeg ../../bin/assets/
-cp -v *.JPEG ../../bin/assets/
-cp -v *.png ../../bin/assets/
-cp -v *.PNG ../../bin/assets/
-cp -v *.gif ../../bin/assets/
-cp -v *.GIF ../../bin/assets/
+cp -v assets/*.jpg ../../bin/assets/
+cp -v assets/*.JPG ../../bin/assets/
+cp -v assets/*.jpeg ../../bin/assets/
+cp -v assets/*.JPEG ../../bin/assets/
+cp -v assets/*.png ../../bin/assets/
+cp -v assets/*.PNG ../../bin/assets/
+cp -v assets/*.gif ../../bin/assets/
+cp -v assets/*.GIF ../../bin/assets/
 
 cd ../../../
+pwd
 git add -A
 git commit -m "deploying first blog entry"
 git push production
