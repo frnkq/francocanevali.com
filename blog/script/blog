@@ -74,4 +74,5 @@ pwd
 git add -A
 git commit -m "Deploying blog post $FILENAME"
 git push production
+git push origin
 
