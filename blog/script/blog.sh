@@ -69,6 +69,6 @@ rm tmp
 cd ../../../
 pwd
 git add -A
-git commit -m "deploying first blog entry"
+git commit -m "Deploying blog post $FILENAME"
 git push production
 
