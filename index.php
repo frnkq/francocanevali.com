@@ -25,7 +25,7 @@ function listPosts()
 function showPostsCount()
 {
         $i = 0;
-        foreach(new DirectoryIterator('./blog') as $f)
+        foreach(new DirectoryIterator('./blog/bin') as $f)
         {
             if($f->isDot()) continue;
             $i++;
