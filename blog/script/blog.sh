@@ -1,7 +1,9 @@
 #!/bin/bash
-
 clear
 mkdir ../posts
+echo "Pulling from production"
+git pull production master
+
 CURRENT_DATE=`date +"%Y-%m-%d"`
 echo "Creating directory $CURRENT_DATE"
 POST_DIR="../posts/$CURRENT_DATE"
