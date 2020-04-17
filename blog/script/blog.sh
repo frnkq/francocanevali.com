@@ -65,8 +65,10 @@ cp -v assets/*.PNG ../../bin/assets/
 cp -v assets/*.gif ../../bin/assets/
 cp -v assets/*.GIF ../../bin/assets/
 
+rm tmp
 cd ../../../
 pwd
 git add -A
 git commit -m "deploying first blog entry"
 git push production
+
