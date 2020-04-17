@@ -1,41 +1,3 @@
-<?php
-function listPosts()
-{
-        $files = [];
-        foreach(new DirectoryIterator('./blog/bin') as $f)
-        {
-            if($f->isDot() || strpos($f->getFilename(), "base.html")===0 ||
-            strpos($f->getFilename(), "assets") ===0) continue;
-            array_push($files, $f->getFilename());
-        }
-        rsort($files);
-
-        foreach($files as $f)
-        {
-            $dateTitle = explode("__", $f);
-            $date = "[".$dateTitle[0]."]";
-            $title = str_replace("_", " ", $dateTitle[1]);
-            $title = explode(".html", $title)[0];
-            echo 
-                "<a href=/blog/bin/"."$f".">"
-                .$date." ".$title
-                ."</a><br>";
-        }
-}
-
-function showPostsCount()
-{
-        $i = 0;
-        foreach(new DirectoryIterator('./blog/bin') as $f)
-        {
-            if($f->isDot() || strpos($f->getFilename(), "base.html")===0 ||
-            strpos($f->getFilename(), "assets") ===0) continue;
-            $i++;
-        }
-
-        echo $i." post(s)";
-}
-?>
 <!DOCTYPE html>
 <html lang="es">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -49,12 +11,82 @@ function showPostsCount()
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
     <title>Franco Canevali</title>
 </head>
+<style>
+html, body
+{
+    background-color: black;
+    color: lime;
+    font-family: monospace;;
+    font-size: 1.2em;
+    font-weight:bold;
+}
+.asciiart
+{
+    white-space: pre;
+    font-size: 0.6em;
+    font-weight: 900;
+    text-shadow:1px 0 green;
+}
+.separator
+{
+    border-bottom: 3px solid green;
+    height:10px;
+    width:100%;
+    padding:0;
+    margin:0;
+}
+a
+{
+    color: darkviolet;
+    text-decoration: underline;
+
+}
+a:hover
+{
+    color: white;
+    cursor:pointer;
+}
+a:visited
+{
+    color: darkslateblue;
+    text-decoration: underline;
+}
+#me
+{
+    height:600px;
+    max-height:600px;
+    width:auto;
+    background-image: url('me.png');
+    background-position:center;
+    background-repeat: no-repeat;
+}
+
+#blogPosts
+{
+    height: 120px;
+    border:1px dotted green;
+    overflow: auto;
+    padding: 10px;
+    max-width: 500px;
+}
+
+#post
+{
+    font-family:monospace; 
+    padding: 20px;
+}
+#title
+{
+    border-bottom: 1px solid lime;
+    margin-top:10px;
+}
+</style>
 
 <body>
     <div class="container-fluid">
@@ -78,40 +110,21 @@ function showPostsCount()
       :;                              ,                    
             </div>
             <div class="col-12 mt-0 pt-0 row">
-                <div class="col-6 text-left">
-                    @frnkq
-                </div>
             </div>
         </div>
-            <div class="separator">
-            </div>
-            <div class="row text-center">
-            <div class="col">
-                <div id="me"></div>
-                <!--<img src="me.png" class="col-12 text-center mt-5">-->
-                <small>Cerro Fitz Roy, El Chalten, Argentina. Feb 2020.</small>
-            </div>
-            <div class="col text-left mt-md-5">
-            Franco. Software Developer.
-            <br>
-            <br>
-            em: email[at]francocanevali.com
-            <br>
-            tw: <a href="https://twitter.com/francocanevali" target="_blank">@francocanevali</a>
-            <br>
-            ln: <a href="https://www.linkedin.com/in/francocanevali/" target="_blank">Franco Canevali</a>
-            <br>
-            gh: <a href="https://github.com/frnkq/" target="_blank">frnkq</a>
-            <br>
-            <a href="/blog" target="_blank">Blog</a>
-            <div id="blogPosts">
-<div class="col text-right">
-            <?php showPostsCount(); ?>
-</div>
-            <?php listPosts(); ?>
-            </div>
-            </div>
 
+            </div>
+            <div id="post">
+                <a href="/">Home page</a>
+                <div id="title" class="row">
+                    <div class="col text-left"><h3>{{POST_title}}</h3></div>
+                    <div class="col text-right">{{POST_date}}</div>
+                </div>
+                <div id="content">
+                    <p>
+                        my content<br>is <br>awesome
+                    </p>
+                </div>
             </div>
     </div>
 </body>

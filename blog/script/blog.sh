@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+clear
 CURRENT_DATE=`date +"%Y-%m-%d"`
 echo "Creating directory $CURRENT_DATE"
 POST_DIR="../posts/$CURRENT_DATE"
@@ -14,14 +14,25 @@ mkdir assets
 CURRENT_DIRECTORY=`pwd`
 echo "Working on $CURRENT_DIRECTORY"
 
-vim base.html
 
 read -p "Enter blog post title: " TITLE
 
-
 FILENAME="${CURRENT_DATE}__${TITLE//\ /_}.html"
 echo $FILENAME;
-mv base.html "$FILENAME"
+
+vim tmp
+
+BASE=`sed "s/{{POST_date}}/$CURRENT_DATE/g" base.html`
+echo "$BASE" > "$FILENAME"
+
+BASE=`sed "s/{{POST_title}}/$TITLE/g" $FILENAME`
+echo "$BASE" > "$FILENAME"
+
+#CONTENT=`cat tmp`
+#changing break lines to html break lines
+CONTENT=$(sed ':a;N;$!ba;s/\n/<br>/g' tmp)
+FINALCONTENT=$(sed "s|{{POST_content}}|$(echo $CONTENT)|g" "$FILENAME")
+echo "$FINALCONTENT" > "$FILENAME"
 
 
 DEPLOY="n"
