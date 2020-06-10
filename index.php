@@ -101,7 +101,7 @@ function showPostsCount()
             <br>
             ln: <a href="https://www.linkedin.com/in/francocanevali/" target="_blank">Franco Canevali</a>
             <br>
-            gh: <a href="https://github.com/frnkq/" target="_blank">frnkq</a>
+            gh: <a href="https://github.com/frnkq/" target="_blank">frnkq</a>_
             <br>
             <a href="/blog" target="_blank">Blog</a>
             <div id="blogPosts">
