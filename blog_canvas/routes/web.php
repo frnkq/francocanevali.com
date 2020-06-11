@@ -13,15 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*
-Route::get('/', function () {
-    return view('welcome');
-});
- */
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes([
+  'register'=> false,
+  'reset' => false,
+  'verify' => false
+]);
 
 Route::namespace('Studio')->prefix(config('studio.path'))->group(function () {
     Route::prefix('api')->group(function () {
