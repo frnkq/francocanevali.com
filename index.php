@@ -65,7 +65,7 @@
             <br>
             gh: <a href="https://github.com/frnkq/" target="_blank">frnkq</a>
             <br>
-            <a href="https://blog.francocanevali.com" target="_blank">Blog</a>
+            <a href="https://francocanevali.com/blog" target="_blank">Blog</a>
             </div>
 
             </div>
