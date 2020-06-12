@@ -5,6 +5,7 @@ html, body
     font-family: monospace;;
     font-size: 1.2em;
     font-weight:bold;
+    cursor: url('cur.png'), auto;
 }
 .asciiart
 {
@@ -25,12 +26,13 @@ a
 {
     color: darkviolet;
     text-decoration: underline;
-
+    cursor: url('cur_click.png'), auto;
 }
 a:hover
 {
     color: white;
     cursor:pointer;
+    cursor: url('cur_click.png'), auto;
 }
 a:visited
 {
