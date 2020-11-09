@@ -54,7 +54,7 @@
                 <small>Cerro Fitz Roy, El Chalten, Argentina. Feb 2020.</small>
             </div>
             <div class="col text-left mt-md-5">
-            Franco. Software Developer._
+            Franco. Software Developer.
             <br>
             <br>
             em: email[at]francocanevali.com
