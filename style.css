@@ -44,8 +44,10 @@ a:visited
     height:600px;
     max-height:600px;
     width:auto;
+    max-width:600px;
     background-image: url('me.png');
-    background-position:center;
+    background-size: 100%;
+    background-position: center;
     background-repeat: no-repeat;
 }
 

@@ -41,20 +41,21 @@
             </div>
             <div class="col-12 mt-0 pt-0 row">
                 <div class="col-6 text-left">
-                    @frnkq
                 </div>
             </div>
         </div>
             <div class="separator">
             </div>
             <div class="row text-center">
-            <div class="col">
-                <div id="me"></div>
-                <!--<img src="me.png" class="col-12 text-center mt-5">-->
-                <small>Cerro Fitz Roy, El Chalten, Argentina. Feb 2020.</small>
+            <div class="col text-center mt-2">
+                <img src="me.png" class="col-10 text-center mt-5">
+                <br>
+                <small>Flexing w/ my setup. Oct 2020.</small>
             </div>
             <div class="col text-left mt-md-5">
-            Franco. Software Developer.
+            <h3><b>Franco Canevali.</b></h3>
+            <br>
+            <u>Software developer.</u>
             <br>
             <br>
             em: email[at]francocanevali.com
@@ -65,8 +66,35 @@
             <br>
             gh: <a href="https://github.com/frnkq/" target="_blank">frnkq</a>
             <br>
-            <a href="https://francocanevali.com/blog" target="_blank">Blog</a>
+            <hr>
+            <u>Knowledge of</u>
+            <br>
+            > <b>API/WebServices implementation</b>
+            <br>
+            > <b>REST API development</b>
+            <br>
+            > <b>Content Management Systems</b>
+            <small>(E-commerce engines, Wordpress and Wordpress-like systems)</small>
+            <br>
+            > <b>Full stack development</b>
+            <small>(Javascript, Typescript, PHP, Java, SQL, C, C#)</small>
+            <br>
+            > <b>Common libraries and frameworks</b>
+            <small>(Angular, Laravel, NodeJs, Express, Spring, Vue, .NET)</small>
+            <br>
+            > <b>Server configuration and maintenance</b>
+            <small>(Linux and Windows Server, scripting, cronjobs, CLI)</small>
+            <br>
+            > <b>Serverless configuration and maintenance</b>
+            <small>(Amazon Web Services, Google Cloud)</small>
+            <br>
+            > <b>DevOps experience</b>
             </div>
+            </div>
+    </div>
+</body>
+
+</html>
 
             </div>
     </div>
