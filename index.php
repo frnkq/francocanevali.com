@@ -72,21 +72,20 @@
             <u>Knowledge of</u>
             <br>
             > <b>Full stack development</b>
-            <small>(Javascript, Typescript, PHP, Java, SQL, C, C#)</small>
             <br>
-            > <b>REST API development</b>
+            > <b>REST API development and integration</b>
             <br>
             > <b>Common libraries and frameworks</b>
             <small>(Angular, Laravel, NodeJs, Express, Spring, Vue, .NET)</small>
 	    <br>
-            > <b>Content Management Systems</b>
-            <small>(E-commerce engines, Wordpress and Wordpress-like systems)</small>
-            <br>
             > <b>Server configuration and maintenance</b>
             <small>(Linux and Windows Server, scripting, cronjobs, CLI)</small>
             <br>
             > <b>SAAS & PAAS</b>
             <small>(Amazon Web Services, Google Cloud)</small>
+            <br>
+            > <b>Content Management Systems</b>
+            <small>(E-commerce engines, Wordpress and Wordpress-like systems)</small>
             </div>
             </div>
     </div>
