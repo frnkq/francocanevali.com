@@ -60,9 +60,7 @@
             <span>Dev lead (new role)</span>
             <br>
             <br>
-            em: email[at]francocanevali.com
-            <br>
-            tw: <a href="https://twitter.com/francocanevali" target="_blank">@francocanevali</a>
+            em: francocanevali[at]gmail.com
             <br>
             ln: <a href="https://www.linkedin.com/in/francocanevali/" target="_blank">Franco Canevali</a>
             <br>
