@@ -84,6 +84,11 @@
             <br>
             > <b>Content Management Systems</b>
             <small>(E-commerce engines, Wordpress and Wordpress-like systems)</small>
+	    <br>
+	    <u>Produced Material</u>
+	    <br>
+	    > <b><a href="./docs/1_desarrollo_texto.pdf">#1 Desarrollo - texto</a></b>
+	    > <b><a href="./docs/1_desarrollo_ppt.pdf">#1 Desarrollo - presentación</a></b>
             </div>
             </div>
     </div>
