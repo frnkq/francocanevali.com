@@ -55,9 +55,9 @@
             <div class="col text-left mt-md-5">
             <h3><b>Franco Canevali</b></h3>
             <br>
-            <b>Software developer. (+9yrs)</b>
+            <b>Software developer (+9yrs)</b>
             <br>
-            <b>Dev lead (new role)</b>
+            <span>Dev lead (new role)</span>
             <br>
             <br>
             em: email[at]francocanevali.com
