@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-    crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="style.css">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
@@ -44,66 +38,67 @@
                 </div>
             </div>
         </div>
-            <div class="separator">
-            </div>
-            <div class="row text-center">
+        <div class="separator">
+        </div>
+        <div class="row text-center">
             <div class="col text-center mt-2">
                 <img src="me.png" class="col-10 text-center mt-5">
                 <br>
                 <small>Flexing w/ my setup. Oct 2020.</small>
             </div>
             <div class="col text-left mt-md-5">
-            <h3><b>Franco Canevali</b></h3>
-            <br>
-            <b>Software developer (+9yrs)</b>
-            <br>
-            <span>Dev lead (new role)</span>
-            <br>
-            <span>Teaching software development</span>
-            <br>
-            <br>
-            em: francocanevali[at]gmail.com
-            <br>
-            ln: <a href="https://www.linkedin.com/in/francocanevali/" target="_blank">Franco Canevali</a>
-            <br>
-            gh: <a href="https://github.com/frnkq/" target="_blank">frnkq</a>
-            <br>
-            <hr>
-            <u>Knowledge of</u>
-            <br>
-            > <b>Full stack development</b>
-            <br>
-            > <b>REST API development and integration</b>
-            <br>
-            > <b>Common libraries and frameworks</b>
-            <small>(Angular, Laravel, NodeJs, Express, Spring, Vue, .NET)</small>
-	    <br>
-            > <b>Server configuration and maintenance</b>
-            <small>(Linux and Windows Server, scripting, cronjobs, CLI)</small>
-            <br>
-            > <b>SAAS & PAAS</b>
-            <small>(Amazon Web Services, Google Cloud)</small>
-            <br>
-            > <b>Content Management Systems</b>
-            <small>(E-commerce engines, Wordpress and Wordpress-like systems)</small>
-	    <br>
-	    <br>
-	    <u>Produced Material</u>
-	    <br>
-	    > <b><a href="./docs/1_desarrollo_texto.pdf" target="_blank">#1 Desarrollo - texto</a></b>
-	    <br>
-	    > <b><a href="./docs/1_desarrollo_ppt.pdf" target="_blank">#1 Desarrollo - presentación</a></b>
+                <h3><b>Franco Canevali</b></h3>
+                <br>
+                <b>Software developer (+9yrs)</b>
+                <br>
+                <span>Dev lead (new role)</span>
+                <br>
+                <span>Teaching software development</span>
+                <br>
+                <br>
+                em: francocanevali[at]gmail.com
+                <br>
+                ln: <a href="https://www.linkedin.com/in/francocanevali/" target="_blank">Franco Canevali</a>
+                <br>
+                gh: <a href="https://github.com/frnkq/" target="_blank">frnkq</a>
+                <br>
+                <hr>
+                <u>Knowledge of</u>
+                <br>
+                > <b>Full stack development</b>
+                <br>
+                > <b>REST API development and integration</b>
+                <br>
+                > <b>Common libraries and frameworks</b>
+                <small>(Angular, Laravel, NodeJs, Express, Spring, Vue, .NET)</small>
+                <br>
+                > <b>Server configuration and maintenance</b>
+                <small>(Linux and Windows Server, scripting, cronjobs, CLI)</small>
+                <br>
+                > <b>SAAS & PAAS</b>
+                <small>(Amazon Web Services, Google Cloud)</small>
+                <br>
+                > <b>Content Management Systems</b>
+                <small>(E-commerce engines, Wordpress and Wordpress-like systems)</small>
+                <br>
+                <br>
+                <u>Produced Material</u>
+                <br>
+                > <b><a href="./docs/1_desarrollo_texto.pdf" target="_blank">#1 Desarrollo - texto</a></b>
+                <br>
+                > <b><a href="./docs/1_desarrollo_ppt.pdf" target="_blank">#1 Desarrollo - presentación</a></b>
+                <br>
+                > <b><a href="./docs/2_como_crear_una_app.pdf" target="_blank">#2 Cómo crear una app</a></b>
             </div>
-	    > <b><a href="./docs/2_como_crear_una_app.pdf" target="_blank">#2 Cómo crear una app</a></b>
-            </div>
-            </div>
+        </div>
+    </div>
     </div>
 </body>
 
 </html>
 
-            </div>
-    </div>
+</div>
+</div>
 </body>
 
 </html>
