@@ -88,7 +88,7 @@
                 <br>
                 > <b><a href="./docs/1_desarrollo_ppt.pdf" target="_blank">#1 Desarrollo - presentación</a></b>
                 <br>
-                > <b><a href="./docs/2_como_crear_una_app.pdf" target="_blank">#2 Cómo crear una app</a></b>
+                > <b><a href="./docs/2_como_crear_una_app_ppt.pdf" target="_blank">#2 Cómo crear una app</a></b>
             </div>
         </div>
     </div>
