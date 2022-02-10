@@ -51,6 +51,8 @@
                 <br>
                 <b>Software developer (+9yrs)</b>
                 <br>
+		<u>Current roles:</u>
+		<br>
                 <span>> Developer Lead at Accenture</span>
                 <br>
                 <span>> Chief Information Technology Officer at Bicimensajeros Buenos Aires</span>
