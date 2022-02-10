@@ -51,6 +51,7 @@
                 <br>
                 <b>Software developer (+9yrs)</b>
                 <br>
+                <br>
 		<u>Current roles:</u>
 		<br>
                 <span>> Developer Lead at Accenture</span>
