@@ -51,7 +51,9 @@
                 <br>
                 <b>Software developer (+9yrs)</b>
                 <br>
-                <span>Dev lead</span>
+                <span>> Developer Lead at Accenture</span>
+                <br>
+                <span>> Chief Information Technology Officer at Bicimensajeros Buenos Aires</span>
                 <br>
                 <br>
                 em: francocanevali[at]gmail.com
