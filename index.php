@@ -51,9 +51,7 @@
                 <br>
                 <b>Software developer (+9yrs)</b>
                 <br>
-                <span>Dev lead (new role)</span>
-                <br>
-                <span>Teaching software development</span>
+                <span>Dev lead</span>
                 <br>
                 <br>
                 em: francocanevali[at]gmail.com
@@ -80,15 +78,6 @@
                 <br>
                 > <b>Content Management Systems</b>
                 <small>(E-commerce engines, Wordpress and Wordpress-like systems)</small>
-                <br>
-                <br>
-                <u>Produced Material</u>
-                <br>
-                > <b><a href="./docs/1_desarrollo_texto.pdf" target="_blank">#1 Desarrollo - texto</a></b>
-                <br>
-                > <b><a href="./docs/1_desarrollo_ppt.pdf" target="_blank">#1 Desarrollo - presentación</a></b>
-                <br>
-                > <b><a href="./docs/2_como_crear_una_app_ppt.pdf" target="_blank">#2 Cómo crear una app</a> | <a href="https://youtu.be/7aaF0qvyVzE" target="_blank">Video en YouTube</a></b>
             </div>
         </div>
     </div>
