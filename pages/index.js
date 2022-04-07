@@ -1,22 +1,40 @@
-import Head from 'next/head'
-import Link from 'next/link'
+import { Component, useState } from 'react';
+import { Card } from './card';
+import { Header } from './header';
 
-export default function Home() {
-  return (
-    <div className="container">
-      <Head>
-        <title>Franco Canevali</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+let isDarkMode = false;
 
-      <main>
-          <Link href="/posts">
-            <p className="text-3xl underline">Test</p>
-          </Link>
-      </main>
+export default class HomePage extends Component {
+    constructor(props){
+        super(props);
+        this.changeDarkMode = this.changeDarkMode.bind(this);
+        this.state = { isDarkMode: false };
+    }
 
-      <footer></footer>
-
-    </div>
-  )
+    changeDarkMode(){
+        this.setState({isDarkMode: !this.state.isDarkMode})
+    }
+    
+    render() {
+        const { isDarkMode } = this.state.isDarkMode;
+        return (
+            <>
+                <div className={
+                    `
+                    ${this.state.isDarkMode ? ' bg-zinc-800' : ' bg-zinc-300'}
+                    ${this.state.isDarkMode ? ' text-white' : ' text-dark'}
+                    ${true ? 'w-full h-screen' : ''}
+                    `
+                }>
+                    <Header />
+                    <Card />
+                    <button onClick={this.changeDarkMode}>☀️A/🌕</button>
+                    <div className="mx-auto">
+                        <p>Franco</p>
+                    </div>
+                </div>
+            </>
+        )
+    }
 }
+
