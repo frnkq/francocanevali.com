@@ -1,8 +1,6 @@
-import { Component, useState } from 'react';
+import { Component } from 'react';
 import { Card } from './card';
 import { Header } from './header';
-
-let isDarkMode = false;
 
 export default class HomePage extends Component {
     constructor(props){
@@ -14,24 +12,27 @@ export default class HomePage extends Component {
     changeDarkMode(){
         this.setState({isDarkMode: !this.state.isDarkMode})
     }
+
+    DarkModeToggle(){
+        return(
+            <button onClick={this.changeDarkMode}>☀️A/🌕</button>
+        );
+    }
     
     render() {
-        const { isDarkMode } = this.state.isDarkMode;
+        const DarkModeToggle = this.DarkModeToggle.bind(this);
         return (
             <>
-                <div className={
+                <div id="container" className={
                     `
                     ${this.state.isDarkMode ? ' bg-zinc-800' : ' bg-zinc-300'}
                     ${this.state.isDarkMode ? ' text-white' : ' text-dark'}
                     ${true ? 'w-full h-screen' : ''}
                     `
                 }>
-                    <Header />
-                    <Card />
-                    <button onClick={this.changeDarkMode}>☀️A/🌕</button>
-                    <div className="mx-auto">
-                        <p>Franco</p>
-                    </div>
+                    <Header isDarkMode = {this.state.isDarkMode} />
+                    <Card isDarkMode = {this.state.isDarkMode}/>
+                    <DarkModeToggle />
                 </div>
             </>
         )
