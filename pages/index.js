@@ -15,7 +15,12 @@ export default class HomePage extends Component {
 
     DarkModeToggle(){
         return(
-            <button onClick={this.changeDarkMode}>☀️A/🌕</button>
+            <button onClick={this.changeDarkMode} className={
+                `
+                    ${this.state.isDarkMode ? 'bg-black' : 'bg-white'}  
+                    ${true ? 'p-3' : ''}
+                `
+            }> 🌗 </button>
         );
     }
     
@@ -25,14 +30,18 @@ export default class HomePage extends Component {
             <>
                 <div id="container" className={
                     `
-                    ${this.state.isDarkMode ? ' bg-zinc-800' : ' bg-zinc-300'}
+                    ${this.state.isDarkMode ? ' bg-zinc-700' : ''}
                     ${this.state.isDarkMode ? ' text-white' : ' text-dark'}
                     ${true ? 'w-full h-screen' : ''}
                     `
                 }>
+                    <div className="static">
+                        <div className="absolute top-0 right-0">
+                         <DarkModeToggle/>
+                        </div>
+                    </div>
                     <Header isDarkMode = {this.state.isDarkMode} />
-                    <Card isDarkMode = {this.state.isDarkMode}/>
-                    <DarkModeToggle />
+                    <Card isDarkMode = {this.state.isDarkMode} />
                 </div>
             </>
         )
