@@ -1,7 +1,7 @@
 import {Component} from 'react';
 import {menuItems} from './menu'
 import Image from 'next/image'
-import me from '../public/assets/me.jpg'
+import me from '../../public/assets/me.jpg'
 
 export class Card extends Component {
     constructor(props) {
@@ -74,7 +74,7 @@ export class Card extends Component {
                 <div className="p-2 p-4 grid sm:grid-cols-1 md:grid-cols-7">
                     <div className="p-2 sm:col-span-7 md:col-span-5 md:col-start-2">
                         <h1 className="mb-2 text-3xl"> Franco Canevali </h1>
-                        <div class="grid sm:grid-cols-1 md:grid-cols-6">
+                        <div className="grid sm:grid-cols-1 md:grid-cols-6">
                             <div className="w-full h-full md:col-span-3">
                                 <Image src={me} />
                             </div>
