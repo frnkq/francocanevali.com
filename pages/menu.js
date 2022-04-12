@@ -1,5 +1,25 @@
-import { Component } from 'react';
+import {Component} from 'react';
 
+export const menuItems = [
+    {
+        "name": "Home",
+        "link": "/",
+    },
+    {
+        "name": "Blog",
+        "link": "/blog",
+    },
+    {
+        "name": "Github",
+        "link": "https://github.com/frnkq/",
+        "newTab": true
+    },
+    {
+        "name": "LinkedIn",
+        "link": "https://github.com/frnkq/",
+        "newTab": true
+    }
+];
 export class Menu extends Component {
     constructor(props) {
         super(props);
@@ -7,36 +27,17 @@ export class Menu extends Component {
     }
 
     getMenu() {
-        const menuItems = [
-            {
-                "name": "Home",
-                "link": "/",
-            },
-            {
-                "name": "Blog",
-                "link": "/blog",
-            },
-            { "name": "Github",
-                "link": "https://github.com/frnkq/",
-                "newTab": true
-            },
-            {
-                "name": "LinkedIn",
-                "link": "https://github.com/frnkq/",
-                "newTab": true
-            }
-        ];
-        const menu = menuItems.map((item)=>{
+        const menu = menuItems.map((item) => {
             return (
                 <>
-                    <a href={item.link} target={ item.newTab? '_blank' : ''} key={item.name}>
+                    <a href={item.link} target={item.newTab ? '_blank' : ''} key={'link_' + item.name}>
                         <span className={
-                        `
+                            `
                           ${this.props.isDarkMode ? ' bg-stone-400' : ' bg-stone-100'}
                           ${this.props.isDarkMode ? ' text-white' : ' text-dark'}
                           ${true ? 'px-3 py-2' : ''}
                          `
-                    }>{item.name}</span>
+                        } key={'span_' + item.name}>{item.name}</span>
                     </a>
                 </>
             )
@@ -45,16 +46,16 @@ export class Menu extends Component {
         return menu;
     }
 
-    render(){
+    render() {
         const menu = this.getMenu();
         return (
             <>
                 <div className="">
                     <span className="flex justify-around">
-            {menu}
-        </span>
-    </div>
-</>
+                        {menu}
+                    </span>
+                </div>
+            </>
         );
     }
 }

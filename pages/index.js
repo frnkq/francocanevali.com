@@ -1,20 +1,20 @@
-import { Component } from 'react';
-import { Card } from './card';
-import { Header } from './header';
+import {Component} from 'react';
+import {Card} from './card';
+import {Footer} from './footer';
 
 export default class HomePage extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.changeDarkMode = this.changeDarkMode.bind(this);
-        this.state = { isDarkMode: false };
+        this.state = {isDarkMode: false};
     }
 
-    changeDarkMode(){
+    changeDarkMode() {
         this.setState({isDarkMode: !this.state.isDarkMode})
     }
 
-    DarkModeToggle(){
-        return(
+    DarkModeToggle() {
+        return (
             <button onClick={this.changeDarkMode} className={
                 `
                     ${this.state.isDarkMode ? 'bg-black' : 'bg-white'}  
@@ -23,25 +23,31 @@ export default class HomePage extends Component {
             }> 🌗 </button>
         );
     }
-    
+
     render() {
         const DarkModeToggle = this.DarkModeToggle.bind(this);
         return (
             <>
                 <div id="container" className={
                     `
-                    ${this.state.isDarkMode ? ' bg-zinc-700' : ''}
-                    ${this.state.isDarkMode ? ' text-white' : ' text-dark'}
-                    ${true ? 'w-full h-screen' : ''}
+                    ${this.state.isDarkMode ? ' bg-black' : ''}
+                    ${this.state.isDarkMode ? ' text-green-500' : ' text-dark'}
+                    ${true ? 'w-full h-screen flex flex-col justify-between' : ''}
                     `
                 }>
-                    <div className="static">
-                        <div className="absolute top-0 right-0">
-                         <DarkModeToggle/>
+                    <header className="h-10">
+                        <div className="static">
+                            <div className="absolute top-0 right-0">
+                                <DarkModeToggle />
+                            </div>
                         </div>
-                    </div>
-                    <Header isDarkMode = {this.state.isDarkMode} />
-                    <Card isDarkMode = {this.state.isDarkMode} />
+                    </header>
+                    <main className="h-10 mb-auto">
+                        <Card isDarkMode={this.state.isDarkMode} />
+                    </main>
+                    <footer className="text-center">
+                        <Footer />
+                    </footer>
                 </div>
             </>
         )
