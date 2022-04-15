@@ -71,12 +71,16 @@ export class Card extends Component {
         const contacts = this.getContacts();
         return (
             <>
+                <div className="w-full overflow-visible text-center whitespace-pre">
+                </div>
                 <div className="p-2 p-4 grid sm:grid-cols-1 md:grid-cols-7">
                     <div className="p-2 sm:col-span-7 md:col-span-5 md:col-start-2">
                         <h1 className="mb-2 text-3xl"> Franco Canevali </h1>
+                        <h2 className="mb-2 text-xl">Software developer</h2>
                         <div className="grid sm:grid-cols-1 md:grid-cols-6">
                             <div className="w-full h-full md:col-span-3">
                                 <Image src={me} />
+                                Flexing w/ my setup. Oct. 2020.
                             </div>
                             <p className="md:col-span-3 md:ml-10">
                                 <h1 className="mb-1 text-2xl underline">Skills</h1>

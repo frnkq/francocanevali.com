@@ -1,6 +1,7 @@
 import {Component} from 'react';
 import {Card} from './components/card';
 import {Footer} from './components/footer';
+import {Header} from './components/header'
 
 export default class HomePage extends Component {
     constructor(props) {
@@ -17,8 +18,8 @@ export default class HomePage extends Component {
         return (
             <button onClick={this.changeDarkMode} className={
                 `
-                    ${this.state.isDarkMode ? 'bg-black' : 'bg-white'}  
-                    ${true ? 'p-3' : ''}
+                    ${this.state.isDarkMode ? 'rotate-180' : 'rotate-0'}
+                    ${true ? 'p-3 text-5xl' : ''}
                 `
             }> 🌗 </button>
         );
@@ -30,19 +31,21 @@ export default class HomePage extends Component {
             <>
                 <div id="container" className={
                     `
-                    ${this.state.isDarkMode ? ' bg-black' : ''}
+                    ${this.state.isDarkMode ? ' bg-black' : 'bg-white'}
                     ${this.state.isDarkMode ? ' text-green-500' : ' text-dark'}
-                    ${true ? 'w-full h-screen flex flex-col justify-between' : ''}
+                    ${true ? 'w-full h-full flex flex-col content-between justify-between' : ''}
                     `
                 }>
-                    <header className="h-10">
+                    <header className="">
                         <div className="static">
                             <div className="absolute top-0 right-0">
                                 <DarkModeToggle />
                             </div>
                         </div>
+                        <Header showNav={true} />
                     </header>
-                    <main className="h-10 mb-auto">
+                    <hr />
+                    <main className="mb-auto">
                         <Card isDarkMode={this.state.isDarkMode} />
                     </main>
                     <footer className="text-center">
