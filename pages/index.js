@@ -1,13 +1,12 @@
 import {Component} from 'react';
 import {Card} from './components/card';
 import {Footer} from './components/footer';
-import {Header} from './components/header'
 
 export default class HomePage extends Component {
     constructor(props) {
         super(props);
         this.changeDarkMode = this.changeDarkMode.bind(this);
-        this.state = {isDarkMode: false};
+        this.state = {isDarkMode: true};
     }
 
     changeDarkMode() {
@@ -19,7 +18,7 @@ export default class HomePage extends Component {
             <button onClick={this.changeDarkMode} className={
                 `
                     ${this.state.isDarkMode ? 'rotate-180' : 'rotate-0'}
-                    ${true ? 'p-3 text-5xl' : ''}
+                    ${true ? 'p-3 text-4xl' : ''}
                 `
             }> 🌗 </button>
         );
@@ -33,19 +32,14 @@ export default class HomePage extends Component {
                     `
                     ${this.state.isDarkMode ? ' bg-black' : 'bg-white'}
                     ${this.state.isDarkMode ? ' text-green-500' : ' text-dark'}
-                    ${true ? 'w-full h-full flex flex-col content-between justify-between' : ''}
+                    // ${true ? 'w-full h-screen flex flex-col content-around justify-between p-1' : ''}
+                    ${true ? 'h-full md:h-screen flex' : ''}
                     `
                 }>
-                    <header className="">
-                        <div className="static">
-                            <div className="absolute top-0 right-0">
-                                <DarkModeToggle />
-                            </div>
-                        </div>
-                        <Header showNav={true} />
-                    </header>
-                    <hr />
-                    <main className="mb-auto">
+                    <div className="absolute top-0 right-0">
+                        <DarkModeToggle />
+                    </div>
+                    <main className="">
                         <Card isDarkMode={this.state.isDarkMode} />
                     </main>
                     <footer className="text-center">

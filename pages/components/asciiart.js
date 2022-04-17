@@ -1,16 +1,15 @@
 import {Component} from 'react'
-import {Menu} from './menu';
 
-export class Header extends Component {
+export default class AsciiArt extends Component {
+
     constructor(props) {
-        super(props);
-        this.props = props;
-        this.showNav = this.props.showNav;
+        super(props)
+        this.props = props
     }
 
-    getAsciiArt() {
+    render() {
         return (
-            <div className="flex justify-around text-left">
+            <div className="flex justify-around text-left fontOutline">
                 <div className="font-[900]">
                     <pre className="p-0 mt-0 text-[0.6em] font-[900]">
                         {
@@ -36,25 +35,6 @@ ffW#Dffj.  E#jG#W;    E#t D#G    t#E E##D.   f#.     t#i
                     </pre>
                 </div >
             </div>
-        )
-
-    }
-
-    render() {
-        const asciiArt = this.getAsciiArt();
-        return (
-            <>
-                {asciiArt}
-                <div className={
-                    `
-                    ${this.props.isDarkMode ? ' bg-zinc-800' : ''}
-                    ${this.props.isDarkMode ? ' text-white' : ' text-dark'}
-                    ${true ? 'w-full p-3' : ''}
-                    `
-                }>
-                    {this.showNav ? <Menu isDarkMode={this.props.isDarkMode} /> : ''}
-                </div>
-            </>
         )
     }
 }

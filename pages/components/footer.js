@@ -10,9 +10,11 @@ export class Footer extends Component {
         const vim = <a href="https://vim.org" target="_blank" className="underline">Vim</a>
         const arch = <a href="https://archlinux.org" target="_blank" className="underline">Arch</a>
         return (<>
-            Made with &lt;3 in {vim} under {arch}
-            <br />
-            ~frnkq
+            <div className="mx-auto md:w-auto md:mt-0">
+                Made with &lt;3 in {vim} under {arch}
+                <br />
+                ~frnkq
+            </div>
         </>)
     }
 

@@ -34,8 +34,8 @@ export class Menu extends Component {
                         <span className={
                             `
                           ${this.props.isDarkMode ? ' bg-stone-400' : ' bg-stone-100'}
-                          ${this.props.isDarkMode ? ' text-white' : ' text-dark'}
-                          ${true ? 'px-3 py-2' : ''}
+                          ${this.props.isDarkMode ? ' text-dark' : ' text-black'}
+                          ${true ? 'px-3 py-2 font-bold' : ''}
                          `
                         } key={'span_' + item.name}>{item.name}</span>
                     </a>
