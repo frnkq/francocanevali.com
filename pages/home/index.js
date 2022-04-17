@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { Card } from "./card";
 import { Footer } from "./footer";
+import { DarkModeToggle } from "../../components/darkModeToggle";
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -9,26 +10,11 @@ export default class HomePage extends Component {
     this.state = { isDarkMode: true };
   }
 
-  changeDarkMode() {
+  changeDarkMode = () => {
     this.setState({ isDarkMode: !this.state.isDarkMode });
-  }
-
-  DarkModeToggle() {
-    return (
-      <button
-        onClick={this.changeDarkMode}
-        className={`
-                    ${this.state.isDarkMode ? "rotate-180" : "rotate-0"}
-                    ${true ? "p-3 text-4xl" : ""}
-                `}
-      >
-        🌗
-      </button>
-    );
-  }
+  };
 
   render() {
-    const DarkModeToggle = this.DarkModeToggle.bind(this);
     return (
       <>
         <div
@@ -45,7 +31,10 @@ export default class HomePage extends Component {
                     `}
         >
           <div className="absolute top-0 right-0">
-            <DarkModeToggle />
+            <DarkModeToggle
+              onChangeDarkMode={this.changeDarkMode}
+              state={this.state}
+            />
           </div>
           <main className="">
             <Card isDarkMode={this.state.isDarkMode} />

@@ -1,5 +1,4 @@
 import { Component } from "react";
-
 export class Header extends Component {
   constructor(props) {
     super(props);
@@ -7,6 +6,10 @@ export class Header extends Component {
   }
 
   render() {
-    return <h1>Header</h1>;
+    return (
+      <div className="w-full text-center">
+        <h1 className="text-2xl"> frnkq </h1>
+      </div>
+    );
   }
 }

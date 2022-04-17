@@ -119,7 +119,6 @@ export class Card extends Component {
                 <div className="block text-md md:hidden">
                   <AsciiArt />
                 </div>
-                <hr className="my-3" />
                 <span className="block md:hidden">{this.emojis()}</span>
                 <p className="text-center md:text-left">{this.contactInfo()}</p>
               </p>
