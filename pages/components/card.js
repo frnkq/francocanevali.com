@@ -13,7 +13,7 @@ export class Card extends Component {
     this.imageDescription = "Flexing w/ my setup. Oct. 2020.";
   }
 
-  getContactInfo() {
+  contactInfo() {
     return (
       <>
         {menuItems.map((contact, index) => {
@@ -21,12 +21,9 @@ export class Card extends Component {
             <a
               href={contact.link}
               target={contact.newTab ? "_blank" : ""}
-              key={"link_" + contact.index}
+              key={"link_" + index}
             >
-              <span
-                key={"span_" + contact.index}
-                className="pr-3 text-xl underline"
-              >
+              <span key={"span_" + index} className="pr-3 text-xl underline">
                 {contact.name == "Home" ? "" : contact.name}
               </span>
             </a>
@@ -36,7 +33,7 @@ export class Card extends Component {
     );
   }
 
-  getSkills() {
+  skills() {
     const skills = [
       {
         text: "Full stack development",
@@ -79,7 +76,7 @@ export class Card extends Component {
     );
   }
 
-  getEmojis() {
+  emojis() {
     const emojis = "💖😈🤝🏾😎🥰🥴👀💪🏾😳👍🏽😂😂😂🥵🤭😱🌚🍻💸🇦🇷🧉"
       .split("")
       .map((emoji, index) => {
@@ -101,9 +98,6 @@ export class Card extends Component {
   }
 
   render() {
-    const skills = this.getSkills();
-    const contacts = this.getContactInfo();
-    const emojis = this.getEmojis();
     return (
       <>
         <div className="w-full overflow-visible text-center whitespace-pre"></div>
@@ -115,19 +109,19 @@ export class Card extends Component {
               <div className="w-full md:col-span-2">
                 <Image src={profilePicture} />
                 {this.imageDescription}
-                <span className="hidden md:block">{emojis}</span>
+                <span className="hidden md:block">{this.emojis()}</span>
               </div>
               <p className="md:col-span-3 md:ml-10">
                 <h1 className="pb-3 pr-3 mt-3 mb-1 text-2xl underline md:mt-0">
                   Skills
                 </h1>
-                {skills}
+                {this.skills()}
                 <div className="block text-md md:hidden">
                   <AsciiArt />
                 </div>
                 <hr className="my-3" />
-                <span className="block md:hidden">{emojis}</span>
-                <p className="text-center md:text-left">{contacts}</p>
+                <span className="block md:hidden">{this.emojis()}</span>
+                <p className="text-center md:text-left">{this.contactInfo()}</p>
               </p>
             </div>
             <div className="hidden text-md md:block">
