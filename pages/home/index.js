@@ -24,10 +24,9 @@ export default class HomePage extends Component {
                     ${this.state.isDarkMode ? " text-green-500" : " text-dark"}
                     ${
                       true
-                        ? "w-full h-screen flex flex-col content-around justify-between p-1"
+                        ? "w-full h-full md:h-screen flex flex-col content-around justify-between p-1"
                         : ""
                     }
-                    ${true ? "h-full md:h-screen flex" : ""}
                     `}
         >
           <div className="absolute top-0 right-0">
