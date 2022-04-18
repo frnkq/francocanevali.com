@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Menu } from "./menu";
 export class Header extends Component {
   constructor(props) {
     super(props);
@@ -7,8 +8,11 @@ export class Header extends Component {
 
   render() {
     return (
-      <div className="w-full text-center">
-        <h1 className="text-2xl"> frnkq </h1>
+      <div className="h-full grid grid-cols-3">
+        <div className="col-span-1">
+          <Menu />
+        </div>
+        <h1 className="text-3xl text-center align-middle"> frnkq </h1>
       </div>
     );
   }

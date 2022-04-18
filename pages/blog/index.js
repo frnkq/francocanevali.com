@@ -21,13 +21,19 @@ export default class Blog extends Component {
               ${true ? "flex flex-col justify-between h-screen" : ""}
               `}
         >
-          <div className="absolute">
+          <div className="absolute top-[-2px] right-0">
             <DarkModeToggle
               onChangeDarkMode={this.changeDarkMode}
               state={this.state}
-          />
+              textSize="text-xl"
+            />
           </div>
-          <header className="h-24">
+          <header
+            className={`
+              ${this.state.isDarkMode ? "bg-black text-green-500" : ""}
+              ${true ? "h-12" : ""}
+              `}
+          >
             <Header />
           </header>
           <main className="h-full">
