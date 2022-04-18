@@ -17,7 +17,7 @@ export default class Blog extends Component {
       <>
         <div
           className={`
-              ${this.state.isDarkMode ? "bg-black" : "bg-green-100"}
+              ${this.state.isDarkMode ? "" : ""}
               ${true ? "flex flex-col justify-between h-screen" : ""}
               `}
         >
@@ -25,7 +25,7 @@ export default class Blog extends Component {
             <DarkModeToggle
               onChangeDarkMode={this.changeDarkMode}
               state={this.state}
-            />
+          />
           </div>
           <header className="h-24">
             <Header />

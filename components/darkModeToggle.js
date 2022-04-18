@@ -1,11 +1,13 @@
 import { Component } from "react";
+import { PropTypes } from "prop-types";
 
 export class DarkModeToggle extends Component {
   constructor(props) {
     super(props);
     this.props = props;
     this.changeDarkMode = this.changeDarkMode.bind(this);
-    this.state = props.state;
+    this.state = props.state ? props.state: {isDarkMode: true};
+    this.textSize = props.textSize ? props.textSize : "text-3xl";
   }
 
   changeDarkMode() {
@@ -19,7 +21,7 @@ export class DarkModeToggle extends Component {
         onClick={this.changeDarkMode}
         className={`
                     ${this.state.isDarkMode ? "rotate-180" : "rotate-0"}
-                    ${true ? "p-3 text-4xl" : ""}
+                    ${true ? "p-3 " + this.textSize : ""}
                 `}
       >
         🌗
@@ -27,3 +29,13 @@ export class DarkModeToggle extends Component {
     );
   }
 }
+
+DarkModeToggle.propTypes = {
+  state: PropTypes.shape({ isDarkMode: PropTypes.bool }),
+  textSize: PropTypes.string,
+};
+
+DarkModeToggle.defaultProps = {
+  state: { isDarkMode: true },
+  textSize: "text-3xl",
+};
