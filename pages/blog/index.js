@@ -34,7 +34,7 @@ export default class Blog extends Component {
               ${true ? "h-12" : ""}
               `}
           >
-            <Header />
+            <Header isDarkMode={this.state.isDarkMode}/>
           </header>
           <main className="h-full">
             <h1> Body </h1>

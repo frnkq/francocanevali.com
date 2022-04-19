@@ -1,8 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import 'asciiart.css';
+@import "./home/asciiart.css";
+@import "./blog/menu.css";
 
-*{
-    cursor: url('../public/assets/cursor.png'), auto;
+* {
+  cursor: url("../public/assets/cursor.png"), auto;
 }

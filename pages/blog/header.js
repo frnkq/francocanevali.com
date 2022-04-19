@@ -10,7 +10,7 @@ export class Header extends Component {
     return (
       <div className="h-full grid grid-cols-3">
         <div className="col-span-1">
-          <Menu />
+          <Menu isDarkMode={this.props.isDarkMode} />
         </div>
         <h1 className="text-3xl text-center align-middle"> frnkq </h1>
       </div>

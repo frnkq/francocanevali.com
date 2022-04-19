@@ -11,15 +11,22 @@ export class Menu extends Component {
 
   leftMenu() {
     return (
-      <div className="absolute top-0 left-0 flex flex-col w-2/3 h-screen bg-red-800">
+      <div
+        id="menu"
+        className={`${this.props.isDarkMode ? "bg-black" : "bg-zinc-300"}
+            ${
+              true ? "absolute top-0 left-0 flex flex-col w-2/3 h-screen" : ""
+            }`}
+      >
         <div
-          className="text-2xl"
+          className="pt-1 pl-2 text-2xl"
           onClick={() => {
             this.setState({ showMenu: !this.state.showMenu });
           }}
         >
           ❌
         </div>
+        <p>h1</p>
       </div>
     );
   }
