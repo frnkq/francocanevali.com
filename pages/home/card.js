@@ -77,13 +77,11 @@ export class Card extends Component {
   }
 
   emojis() {
-    const emojis = "💖😈🤝🏾😎🥰🥴👀💪🏾😳👍🏽😂😂😂🥵🤭😱🌚🍻💸🇦🇷🧉"
+    const emojis = "💖😈🤝😎🥰🥴👀💪😳👍😂😂😂🥵🤭😱🌚🍻💸🇦🇷🧉"
       .split("")
       .map((emoji, index) => {
         return (
-          <>
-            <span className="text-xl tracking-[.60em]">{emoji}</span>
-          </>
+            <span className="text-xl tracking-[.60em]" key={'emoji_'+index}>{emoji}</span>
         );
       });
 
@@ -111,7 +109,7 @@ export class Card extends Component {
                 {this.imageDescription}
                 <span className="hidden md:block">{this.emojis()}</span>
               </div>
-              <p className="md:col-span-3 md:ml-10">
+              <div className="md:col-span-3 md:ml-10">
                 <h1 className="pb-3 pr-3 mt-3 mb-1 text-2xl underline md:mt-0">
                   Skills
                 </h1>
@@ -120,8 +118,8 @@ export class Card extends Component {
                   <AsciiArt />
                 </div>
                 <span className="block md:hidden">{this.emojis()}</span>
-                <p className="text-center md:text-left">{this.contactInfo()}</p>
-              </p>
+                <span className="text-center md:text-left">{this.contactInfo()}</span>
+              </div>
             </div>
             <div className="hidden text-md md:block">
               <AsciiArt />
