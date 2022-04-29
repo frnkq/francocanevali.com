@@ -1,11 +1,18 @@
 import { Component } from "react";
+import dynamic from "next/dynamic";
 import { Header } from "./header";
-import { DarkModeToggle } from "../../components/darkModeToggle";
 
 export default class Blog extends Component {
   constructor(props) {
     super(props);
     this.state = { isDarkMode: true };
+    this.DarkModeToggle = dynamic(
+      () =>
+        import("../../components/darkModeToggle").then(
+          (mod) => mod.DarkModeToggle
+        ),
+      { ssr: false }
+    );
   }
 
   changeDarkMode = () => {
@@ -22,7 +29,7 @@ export default class Blog extends Component {
               `}
         >
           <div className="absolute top-[-2px] right-0">
-            <DarkModeToggle
+            <this.DarkModeToggle
               onChangeDarkMode={this.changeDarkMode}
               state={this.state}
               textSize="text-xl"
@@ -34,7 +41,7 @@ export default class Blog extends Component {
               ${true ? "h-12" : ""}
               `}
           >
-            <Header isDarkMode={this.state.isDarkMode}/>
+            <Header isDarkMode={this.state.isDarkMode} />
           </header>
           <main className="h-full">
             <h1> Body </h1>

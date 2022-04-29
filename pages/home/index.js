@@ -2,12 +2,21 @@ import { Component } from "react";
 import { Card } from "./card";
 import { Footer } from "./footer";
 import { DarkModeToggle } from "../../components/darkModeToggle";
+import dynamic from "next/dynamic";
 
 export default class HomePage extends Component {
   constructor(props) {
     super(props);
     this.changeDarkMode = this.changeDarkMode.bind(this);
     this.state = { isDarkMode: true };
+    this.DarkModeToggle = dynamic(
+      () => {
+        import("../../components/darkModeToggle").then(
+          (mod) => mod.DarkModeToggle
+        );
+      },
+      { ssr: false }
+    );
   }
 
   changeDarkMode = () => {

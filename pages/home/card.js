@@ -14,23 +14,20 @@ export class Card extends Component {
   }
 
   contactInfo() {
-    return (
-      <>
-        {menuItems.map((contact, index) => {
-          return (
-            <a
-              href={contact.link}
-              target={contact.newTab ? "_blank" : ""}
-              key={"link_" + index}
-            >
-              <span key={"span_" + index} className="pr-3 text-xl underline">
-                {contact.name == "Home" ? "" : contact.name}
-              </span>
-            </a>
-          );
-        })}
-      </>
-    );
+    const contacts = menuItems.map((contact, index) => {
+      return (
+        <a
+          href={contact.link}
+          target={contact.newTab ? "_blank" : ""}
+          key={"link_" + index}
+        >
+          <span className="pr-3 text-xl underline">
+            {contact.name == "Home" ? "" : contact.name}
+          </span>
+        </a>
+      );
+    });
+    return <>{contacts}</>;
   }
 
   skills() {
@@ -59,29 +56,29 @@ export class Card extends Component {
       },
     ];
 
-    return (
-      <ul>
-        {skills.map((skill, index) => {
-          return (
-            <li key={"skill_" + index} className="mb-1.5 p-2">
-              <span key={"skillspan_" + index} className="font-bold">
-                {" "}
-                <u>&gt; {skill.text}</u>
-              </span>
-              {skill.subText ? " (" + skill.subText + ")" : ""}
-            </li>
-          );
-        })}
-      </ul>
-    );
+    const skillsItems = skills.map((skill, index) => {
+      return (
+        <li key={"skill_" + index} className="mb-1.5 p-2">
+          <span className="font-bold">
+            <u>&gt; {skill.text}</u>
+          </span>
+          <span>{skill.subText ? " (" + skill.subText + ")" : ""}</span>
+        </li>
+      );
+    });
+    return <ul>{skillsItems}</ul>;
   }
 
   emojis() {
-    const emojis = "💖😈🤝😎🥰🥴👀💪😳👍😂😂😂🥵🤭😱🌚🍻💸🇦🇷🧉"
+    const emojis = "💖😈🤝🏾😎🥰🥴👀💪🏾😳👍🏽😂😂😂🥵🤭😱🌚🍻💸🇦🇷🧉"
       .split("")
       .map((emoji, index) => {
         return (
-            <span className="text-xl tracking-[.60em]" key={'emoji_'+index}>{emoji}</span>
+          <>
+            <span key={"emoji_" + index} className="text-xl tracking-[.60em]">
+              {emoji}
+            </span>
+          </>
         );
       });
 
@@ -109,7 +106,7 @@ export class Card extends Component {
                 {this.imageDescription}
                 <span className="hidden md:block">{this.emojis()}</span>
               </div>
-              <div className="md:col-span-3 md:ml-10">
+              <p className="md:col-span-3 md:ml-10">
                 <h1 className="pb-3 pr-3 mt-3 mb-1 text-2xl underline md:mt-0">
                   Skills
                 </h1>
@@ -118,8 +115,8 @@ export class Card extends Component {
                   <AsciiArt />
                 </div>
                 <span className="block md:hidden">{this.emojis()}</span>
-                <span className="text-center md:text-left">{this.contactInfo()}</span>
-              </div>
+                <p className="text-center md:text-left">{this.contactInfo()}</p>
+              </p>
             </div>
             <div className="hidden text-md md:block">
               <AsciiArt />
