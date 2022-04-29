@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { Header } from "./header";
 import { DarkModeToggle } from "../../components/darkModeToggle";
+import { PostList } from "./posts/postList";
 
 export default class Blog extends Component {
   constructor(props) {
@@ -34,10 +35,10 @@ export default class Blog extends Component {
               ${true ? "h-12" : ""}
               `}
           >
-            <Header isDarkMode={this.state.isDarkMode}/>
+            <Header isDarkMode={this.state.isDarkMode} />
           </header>
           <main className="h-full">
-            <h1> Body </h1>
+            <PostList />
           </main>
           <footer>
             <h1> Footer </h1>
