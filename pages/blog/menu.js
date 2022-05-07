@@ -1,6 +1,6 @@
 import { Component, useState } from "react";
 
-export class Menu extends Component {
+export default class Menu extends Component {
   constructor(props) {
     super(props);
     this.props = props;

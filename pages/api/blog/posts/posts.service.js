@@ -3,8 +3,8 @@ export default class PostsService {
     this.repository = repository;
   }
 
-  getPosts(size, page, reverseOrder = false) {
-    const posts = this.repository.getPosts();
+  async getPosts(size, page, reverseOrder = false) {
+    const posts = await  this.repository.getPosts();
     return posts;
   }
 }

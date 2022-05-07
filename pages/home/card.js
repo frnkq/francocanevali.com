@@ -4,7 +4,7 @@ import Image from "next/image";
 import profilePicture from "../../public/assets/profilePicture.jpg";
 import AsciiArt from "./asciiart";
 
-export class Card extends Component {
+export default class Card extends Component {
   constructor(props) {
     super(props);
     this.props = props;
@@ -81,7 +81,9 @@ export class Card extends Component {
       .split("")
       .map((emoji, index) => {
         return (
-            <span className="text-xl tracking-[.60em]" key={'emoji_'+index}>{emoji}</span>
+          <span className="text-xl tracking-[.60em]" key={"emoji_" + index}>
+            {emoji}
+          </span>
         );
       });
 
@@ -118,7 +120,9 @@ export class Card extends Component {
                   <AsciiArt />
                 </div>
                 <span className="block md:hidden">{this.emojis()}</span>
-                <span className="text-center md:text-left">{this.contactInfo()}</span>
+                <span className="text-center md:text-left">
+                  {this.contactInfo()}
+                </span>
               </div>
             </div>
             <div className="hidden text-md md:block">

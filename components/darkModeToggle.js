@@ -1,12 +1,12 @@
 import { Component } from "react";
 import { PropTypes } from "prop-types";
 
-export class DarkModeToggle extends Component {
+export default class DarkModeToggle extends Component {
   constructor(props) {
     super(props);
     this.props = props;
     this.changeDarkMode = this.changeDarkMode.bind(this);
-    this.state = props.state ? props.state: {isDarkMode: true};
+    this.state = props.state ? props.state : { isDarkMode: true };
     this.textSize = props.textSize ? props.textSize : "text-3xl";
   }
 

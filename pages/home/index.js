@@ -1,7 +1,7 @@
 import { Component } from "react";
-import { Card } from "./card";
-import { Footer } from "./footer";
-import { DarkModeToggle } from "../../components/darkModeToggle";
+import Card from "./card";
+import Footer from "./footer";
+import DarkModeToggle from "../../components/darkModeToggle";
 
 export default class HomePage extends Component {
   constructor(props) {

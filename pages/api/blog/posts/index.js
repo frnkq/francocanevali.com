@@ -1,9 +1,9 @@
-import { PostsService } from "./posts.service";
-import { PostsRepository } from "./posts.repository";
+import PostsRepository from "./posts.repository";
+import PostsService from "./posts.service";
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
   const repository = new PostsRepository();
   const service = new PostsService(repository);
-  const posts = service.getPosts(1, 1, false);
+  const posts = await service.getPosts(1, 1, false);
   res.status(200).json(posts);
 }

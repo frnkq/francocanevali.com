@@ -1,6 +1,7 @@
 import { Component } from "react";
-import { Menu } from "./menu";
-export class Header extends Component {
+import Menu from "./menu";
+
+export default class Header extends Component {
   constructor(props) {
     super(props);
     this.props = props;

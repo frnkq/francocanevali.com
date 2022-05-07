@@ -1,7 +1,7 @@
 import { Component } from "react";
-import { Header } from "./header";
-import { DarkModeToggle } from "../../components/darkModeToggle";
-import { PostList } from "./posts/postList";
+import Header from "./header";
+import DarkModeToggle from "../../components/darkModeToggle";
+import PostList from "./posts/postList";
 
 export default class Blog extends Component {
   constructor(props) {
