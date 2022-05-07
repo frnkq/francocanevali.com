@@ -9,7 +9,7 @@ export default class AsciiArt extends Component {
 
     render() {
         return (
-            <div className="flex justify-around text-left fontOutline">
+            <div className="flex justify-around text-left"> 
                 <div className="font-[900]">
                     <pre className="p-0 mt-0 text-[0.6em] font-[900]">
                         {
