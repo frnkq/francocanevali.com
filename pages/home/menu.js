@@ -34,6 +34,7 @@ export default class Menu extends Component {
           <a
             href={item.link}
             target={item.newTab ? "_blank" : ""}
+            rel="noreferrer"
             key={"link_" + item.name}
           >
             <span

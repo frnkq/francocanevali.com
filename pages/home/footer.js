@@ -8,12 +8,12 @@ export default class Footer extends Component {
 
   render() {
     const vim = (
-      <a href="https://vim.org" target="_blank" className="underline">
+      <a href="https://vim.org" target="_blank" rel="noreferrer" className="underline">
         Vim
       </a>
     );
     const arch = (
-      <a href="https://archlinux.org" target="_blank" className="underline">
+      <a href="https://archlinux.org" target="_blank" rel="noreferrer"  className="underline">
         Arch
       </a>
     );

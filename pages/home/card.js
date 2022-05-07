@@ -21,6 +21,7 @@ export default class Card extends Component {
             <a
               href={contact.link}
               target={contact.newTab ? "_blank" : ""}
+              rel="noreferrer"
               key={"link_" + index}
             >
               <span key={"span_" + index} className="pr-3 text-xl underline">
@@ -107,7 +108,7 @@ export default class Card extends Component {
             <h2 className="text-xl mb-">{this.career}</h2>
             <div className="grid sm:grid-cols-1 md:grid-cols-6">
               <div className="w-full md:col-span-2">
-                <Image src={profilePicture} />
+                <Image src={profilePicture} alt={this.imageDescription}/>
                 {this.imageDescription}
                 <span className="hidden md:block">{this.emojis()}</span>
               </div>
