@@ -38,7 +38,8 @@ export default class Blog extends Component {
             <Header isDarkMode={this.state.isDarkMode} />
           </header>
           <main className="h-full">
-            <PostList />
+              {/* <PostList /> */}
+              <p className="text-center">Under construction</p>
           </main>
           <footer>
             <h1> Footer </h1>
