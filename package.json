@@ -17,10 +17,12 @@
     "next": "latest",
     "prop-types": "^15.8.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "sharp": "^0.30.4"
   },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.17.9",
+    "@shelf/jest-mongodb": "^2.2.2",
     "eslint": "8.15.0",
     "eslint-config-next": "12.1.6",
     "tailwindcss": "^3.0.23"

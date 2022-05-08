@@ -9,7 +9,7 @@ export default class Card extends Component {
     super(props);
     this.props = props;
     this.name = "Franco Canevali";
-    this.career = "Software Developer +9yrs";
+    this.career = "Software Developer +10yrs";
     this.imageDescription = "Flexing w/ my setup. Oct. 2020.";
   }
 
