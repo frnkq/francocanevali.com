@@ -16,7 +16,7 @@ export const menuItems = [
   },
   {
     name: "LinkedIn",
-    link: "https://github.com/frnkq/",
+    link: "https://www.linkedin.com/in/francocanevali/",
     newTab: true,
   },
 ];
