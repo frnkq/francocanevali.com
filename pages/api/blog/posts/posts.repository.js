@@ -4,9 +4,7 @@ export default class PostsRepository {
     if (database) {
       this.database = database;
     } else {
-      this.database = mongoose.createConnection(
-        "mongodb://blog:frnkquito@127.0.0.1:27017/blog"
-      );
+      this.database = mongoose.createConnection(process.env.MONGODB_URI);
     }
   }
 

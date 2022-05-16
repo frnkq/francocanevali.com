@@ -4,6 +4,10 @@
  */
 
 module.exports = {
+  globalSetup: "<rootDir>/test.js",
+  coverageProvider: "v8",
+  preset: "@shelf/jest-mongodb",
+  testMatch: ["**/helper.spec.js"],
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -31,7 +35,7 @@ module.exports = {
   // ],
 
   // Indicates which provider should be used to instrument code for coverage
-  coverageProvider: "v8",
+  // coverageProvider: "v8",
 
   // A list of reporter names that Jest uses when writing coverage reports
   // coverageReporters: [
@@ -100,8 +104,7 @@ module.exports = {
   // notifyMode: "failure-change",
 
   // A preset that is used as a base for Jest's configuration
-    // preset: undefined,
-"preset": "@shelf/jest-mongodb"
+  // preset: undefined,
 
   // Run tests from one or more projects
   // projects: undefined,
@@ -158,7 +161,6 @@ module.exports = {
   //   "**/__tests__/**/*.[jt]s?(x)",
   //   "**/?(*.)+(spec|test).[tj]s?(x)"
   // ],
-
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [
   //   "/node_modules/"
