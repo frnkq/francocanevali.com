@@ -7,7 +7,7 @@ module.exports = {
   globalSetup: "<rootDir>/test.js",
   coverageProvider: "v8",
   preset: "@shelf/jest-mongodb",
-  testMatch: ["**/helper.spec.js"],
+  testMatch: ["**/auth.repository.spec.js"],
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 

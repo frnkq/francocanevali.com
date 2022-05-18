@@ -9,6 +9,10 @@ export default class AuthRepository {
     User = this.database.model("User", userSchema);
   }
 
+    async getUsers(){
+        return [];
+    }
+
   async getUser() {
     const users = await User.find({});
     return users;
