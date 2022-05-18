@@ -9,9 +9,23 @@ export default class AuthService {
   }
 
   async login(email, password) {
-    const user = await this.repository.getUser(email, password);
-    return user;
+    try {
+      const user = await this.repository.getUserWithCredentials(
+        email,
+        password
+      );
+      return this.createToken(user);
+    } catch (err) {
+      return null;
+    }
   }
 
   async register(email, password, name) {}
+
+  createToken(user) {
+    const token = {
+      bearer: "asd",
+    };
+    return token;
+  }
 }

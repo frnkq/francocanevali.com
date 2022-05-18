@@ -38,16 +38,8 @@ export default class AuthRepository {
       if (!passwordMatches) {
         return reject("Invalid email/password");
       }
+      user.password = undefined;
       return resolve(user);
     });
-  }
-
-  async getUsers() {
-    return [];
-  }
-
-  async getUser() {
-    const users = await User.find({});
-    return users;
   }
 }

@@ -1,33 +1,37 @@
 import AuthService from "../../../pages/api/auth/auth.service";
+import { mockUser } from "./user.mock";
 
 describe("Auth Service", () => {
-  test("Returns token object for an existing user", async () => {
-    const getUserMock = jest.fn(() => {
-      return { _id: 1, email: "mail@mail.com" };
+  describe("login()", () => {
+    test("Returns null for non-existing user", async () => {
+      const getUserWithCredentialsMock = jest.fn(async () => {
+        return new Promise((resolve, reject) => {
+          reject("Invalid email/password");
+        });
+      });
+
+      const AuthRepository = {
+        getUserWithCredentials: getUserWithCredentialsMock,
+      };
+
+      const service = new AuthService(AuthRepository);
+      const token = await service.login("username", "password");
+      expect(token).toBe(null);
     });
 
-    const AuthRepository = {
-      getUser: getUserMock,
-    };
+    test("Returns token for existing user", async () => {
+      const getUserWithCredentialsMock = jest.fn(async () => {
+        return new Promise((resolve, reject) => {
+          resolve(mockUser);
+        });
+      });
+      const AuthRepository = {
+        getUserWithCredentials: getUserWithCredentialsMock,
+      };
 
-    const service = new AuthService(AuthRepository);
-    const token = await service.login("username", "password");
-    expect(token).toHaveProperty("bearer");
-    expect(token).toHaveProperty("expires_in");
-    expect(isNaN(token.expires_in)).toBe(false);
-  });
-
-  test("Returns null for non-existing user", async () => {
-    const getUserMock = jest.fn(() => {
-      return null;
+      const service = new AuthService(AuthRepository);
+      const token = await service.login(mockUser.email, mockUser.password);
+      expect(token).toHaveProperty("bearer");
     });
-
-    const AuthRepository = {
-      getUser: getUserMock,
-    };
-
-    const service = new AuthService(AuthRepository);
-    const token = await service.login("username", "password");
-    expect(token).toBe(null);
   });
 });

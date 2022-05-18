@@ -1,6 +1,7 @@
 import AuthRepository from "../../../pages/api/auth/auth.repository";
 import { createConnection, closeConnection } from "../db";
 import { comparePassword } from "../../../pages/api/encryptor";
+import { mockUser } from "./user.mock";
 
 describe("Auth Repository", () => {
   let authRepository;
@@ -31,10 +32,10 @@ describe("Auth Repository", () => {
 
     test("Create user with required field inserts and returns user", async () => {
       const { email, password, name, bio } = {
-        email: "email@email.com",
-        password: "password",
-        name: "Franco Canevali",
-        bio: "My name is b b k i d I am the king of the beat. I used to be n e k r o but not not not anymore. I'm the ra po cappo c a p p o. Ra po ca po c a p p o",
+        email: mockUser.email,
+        password: mockUser.password,
+        name: mockUser.name,
+        bio: mockUser.bio,
       };
       const user = await authRepository.createUser(email, password, name, bio);
       expect(user).toHaveProperty("email");
@@ -62,8 +63,8 @@ describe("Auth Repository", () => {
   describe("getUserWithCredentials()", () => {
     test("Get user with valid credentials returns user", async () => {
       const { email, password } = {
-        email: "email@email.com",
-        password: "password",
+        email: mockUser.email,
+        password: mockUser.password,
       };
       await authRepository.createUser(email, password);
       const user = await authRepository.getUserWithCredentials(email, password);
@@ -75,8 +76,8 @@ describe("Auth Repository", () => {
 
     test("Get user with invalid email throws Invalid email/password", async () => {
       const { email, password } = {
-        email: "email@email.com",
-        password: "password",
+        email: mockUser.email,
+        password: mockUser.password,
       };
       await authRepository.createUser(email, password);
       return expect(
@@ -86,8 +87,8 @@ describe("Auth Repository", () => {
 
     test("Get user with invalid password throws Invalid email/password", async () => {
       const { email, password } = {
-        email: "email@email.com",
-        password: "password",
+        email: mockUser.email,
+        password: mockUser.password,
       };
       await authRepository.createUser(email, password);
       return expect(
@@ -97,8 +98,8 @@ describe("Auth Repository", () => {
 
     test("Get user with invalid email & password throws Invalid email/password", async () => {
       const { email, password } = {
-        email: "email@email.com",
-        password: "password",
+        email: mockUser.email,
+        password: mockUser.password,
       };
       await authRepository.createUser(email, password);
       return expect(
