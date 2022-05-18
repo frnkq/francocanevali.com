@@ -12,6 +12,7 @@
     "@headlessui/react": "^1.5.0",
     "@heroicons/react": "^1.0.6",
     "autoprefixer": "^10.4.4",
+    "bcrypt": "^5.0.1",
     "jest": "^28.1.0",
     "mongodb-memory-server": "^8.5.2",
     "mongoose": "^6.3.1",

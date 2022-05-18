@@ -9,7 +9,7 @@ module.exports = {
   preset: "@shelf/jest-mongodb",
   testMatch: ["**/auth.repository.spec.js"],
   testEnvironment: "node",
-  transformIgnorePatterns: ["/node_modules/mongodb-memory-server-core"],
+  transformIgnorePatterns: ["/node_modules/mongodb-memory-server-core/"],
 
   // All imported modules in your tests should be mocked automatically
   // automock: false,
