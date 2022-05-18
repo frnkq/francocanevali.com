@@ -1,28 +1,19 @@
 import AuthRepository from "../../../pages/api/auth/auth.repository";
-import mongoose from "mongoose";
-import { MongoMemoryServer } from "mongodb-memory-server";
+import { createConnection, closeConnection } from "../db";
 
 describe("Posts Repository", () => {
   describe("getPosts()", () => {
-    let mongo, uri, db, repo;
+    let repo;
     beforeAll(async () => {
-      mongo = await MongoMemoryServer.create();
-      const uri = mongo.getUri();
-      db = await mongoose.connect(uri);
+      const db = await createConnection();
       repo = new AuthRepository(db);
     });
-
     afterAll(async () => {
-      if (db) {
-        db.connection.close();
-      }
-      if (mongo) {
-        mongo.stop();
-      }
+      await closeConnection();
     });
 
     test("Returns array", async () => {
-      const posts = await repo.getUsers();
+      const posts = await repo.getUser();
       expect(Array.isArray(posts)).toBe(true);
     });
   });
