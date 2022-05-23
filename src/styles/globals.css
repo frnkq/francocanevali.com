@@ -5,5 +5,5 @@
 @import "./blog/menu.css";
 
 * {
-  cursor: url("../public/assets/cursor.png"), auto;
+  cursor: url("../../public/assets/cursor.png"), auto;
 }
