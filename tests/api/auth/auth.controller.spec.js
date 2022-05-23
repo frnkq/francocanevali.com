@@ -1,10 +1,10 @@
 import { createMocks } from "node-mocks-http";
-import handleLogin from "../../../pages/api/auth/login/";
-import handleRegister from "../../../pages/api/auth/register/";
-import AuthService from "../../../pages/api/auth/auth.service";
+import handleLogin from "../../../api/auth/login/";
+import handleRegister from "../../../api/auth/register/";
+import AuthService from "../../../api/auth/auth.service";
 import { createConnection, closeConnection } from "../db";
-import AuthRepository from "../../../pages/api/auth/auth.repository";
-jest.mock("../../../pages/api/auth/auth.service");
+import AuthRepository from "../../../api/auth/auth.repository";
+jest.mock("../../../api/auth/auth.service");
 
 describe("AuthController", () => {
     let mockLogin = jest.fn((email, password)=>{});

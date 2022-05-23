@@ -1,4 +1,4 @@
-import { encryptPassword, comparePassword } from "../../pages/api/encryptor";
+import { encryptPassword, comparePassword } from "../../api/encryptor";
 
 describe("Encryptor", () => {
   test("Should encrypt password", async () => {
