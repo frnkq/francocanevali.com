@@ -2,14 +2,18 @@ import { createMocks } from "node-mocks-http";
 import handleLogin from "../../../pages/api/auth/login/";
 import handleRegister from "../../../pages/api/auth/register/";
 import AuthService from "../../../pages/api/auth/auth.service";
+import { createConnection, closeConnection } from "../db";
+import AuthRepository from "../../../pages/api/auth/auth.repository";
 jest.mock("../../../pages/api/auth/auth.service");
 
 describe("AuthController", () => {
-  const mockRegister = jest.fn((email, password, name) => {});
+    let mockLogin = jest.fn((email, password)=>{});
+    let mockRegister = jest.fn((email, password, name) => {});
   beforeAll(() => {
     AuthService.mockImplementation(() => {
       return {
-        register: mockRegister,
+          login: mockLogin,
+          register: mockRegister,
       };
     });
   });
@@ -80,6 +84,73 @@ describe("AuthController", () => {
       });
       await handleLogin(req, res);
       expect(res._getStatusCode()).toBe(401);
+    });
+
+    test(`Calls AuthService.login() if all required keys are correct`, async () => {
+      const { req, res } = createMocks({
+        method: "POST",
+        body: {
+          email: "mail@mail.com",
+          password: "123456789",
+        },
+      });
+      await handleLogin(req, res);
+      expect(AuthService).toHaveBeenCalled();
+      expect(mockLogin).toHaveBeenCalledWith(
+        req.body.email,
+        req.body.password
+      );
+    });
+
+      test("Returns unauthorized if user is not found in the repository", async()=>{
+
+      const { req, res } = createMocks({
+        method: "POST",
+        body: {
+          email: "mail@mail.com",
+          password: "123456789",
+        },
+      });
+      await handleLogin(req, res);
+      expect(AuthService).toHaveBeenCalled();
+      expect(mockLogin).toHaveBeenCalledWith(
+        req.body.email,
+        req.body.password
+      );
+      expect(res._getStatusCode()).toBe(401);
+    });
+
+    test("Returns token in response body", async()=>{
+        let authRepository;
+        mockLogin = jest.fn(()=>{
+            return {
+                email: "mail@mail.com",
+                password: "password"
+            }
+        })
+
+      const db = await createConnection();
+      authRepository = new AuthRepository(db);
+      const { email, password, name, bio } = {
+        email: "mail@mail.com",
+        password: "password",
+      };
+      const user = await authRepository.createUser(email, password);
+      const { req, res } = createMocks({
+        method: "POST",
+        body: {
+          email: user.email,
+          password: user.password,
+        },
+      });
+      await handleLogin(req, res);
+      expect(AuthService).toHaveBeenCalled();
+      expect(mockLogin).toHaveBeenCalledWith(
+        user.email,
+        user.password
+      );
+      expect(res._getStatusCode()).toBe(200);
+      await closeConnection();
     });
   });
 

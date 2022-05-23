@@ -13,9 +13,6 @@ export default class AuthController {
   constructor() {
     this.authService = new AuthService();
   }
-  unauthorized(res) {
-    return res.status(401).send();
-  }
 
   async login(req, res) {
     if (!methodIsPOST(req)) return methodNotAllowed(res);

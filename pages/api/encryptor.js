@@ -7,7 +7,7 @@ const encryptPassword = async (password) => {
       const hash = await bcrypt.hash(password, salt);
       resolve(hash);
     } catch (err) {
-      reject(err);
+      reject(err.toString());
     }
   });
 };
@@ -18,7 +18,7 @@ const comparePassword = async (password, hash) => {
       const matches = await bcrypt.compare(password, hash);
       resolve(matches);
     } catch (err) {
-      reject(err);
+      reject(err.toString());
     }
   });
 };
