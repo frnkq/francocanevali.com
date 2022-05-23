@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { menuItems } from "./menu";
 import Image from "next/image";
-import profilePicture from "../../public/assets/profilePicture.jpg";
+import profilePicture from "../../../public/assets/profilePicture.jpg";
 import AsciiArt from "./asciiart";
 
 export default class Card extends Component {
