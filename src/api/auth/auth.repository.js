@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { encryptPassword, comparePassword } from "../encryptor";
+import { encryptPassword, comparePassword } from "../../helpers/encryptor";
 const { userSchema } = require("./user.schema");
 let User = null;
 export default class AuthRepository {

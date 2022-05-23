@@ -1,4 +1,4 @@
-import { encryptPassword, comparePassword } from "../../api/encryptor";
+import { encryptPassword, comparePassword } from "../../src/helpers/encryptor";
 
 describe("Encryptor", () => {
   test("Should encrypt password", async () => {
