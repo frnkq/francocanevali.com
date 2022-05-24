@@ -1,4 +1,4 @@
-import AuthService from "../../../src/api/auth/auth.service";
+import AuthService from "../../../../src/pages/api/auth/auth.service";
 import { mockUser } from "./user.mock";
 
 describe("Auth Service", () => {
