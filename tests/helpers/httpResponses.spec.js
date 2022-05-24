@@ -4,7 +4,7 @@ import {
   methodNotAllowed,
   unauthorized,
   badRequest,
-} from "../../pages/api/helpers";
+} from "../../src/helpers/httpResponses";
 describe("Helper API functions", () => {
   test("Unauthorized should return 401", () => {
     const { req, res } = createMocks({});

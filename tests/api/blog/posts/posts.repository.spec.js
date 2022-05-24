@@ -1,4 +1,4 @@
-import PostsRepository from "../../../../pages/api/blog/posts/posts.repository";
+import PostsRepository from "../../../../api/blog/posts/posts.repository";
 import mongoose from "mongoose";
 const { mockPosts } = require("./posts.mock");
 
