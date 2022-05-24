@@ -5,7 +5,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --runInBand --detectOpenHandles --coverage"
+    "test": "jest --runInBand --detectOpenHandles --verbose --coverage --coverageProvider=v8"
   },
   "dependencies": {
     "@babel/preset-react": "^7.16.7",
