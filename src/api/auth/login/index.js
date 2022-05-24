@@ -1,9 +1,9 @@
 import AuthController from "../auth.controller";
 
-export default async function handleLogin(req, res) {
+export default async function handleLogin(req, res, controller = null) {
   return new Promise(async (resolve, reject) => {
     try {
-      const authController = new AuthController();
+      const authController = controller || new AuthController();
       await authController.login(req, res);
       resolve();
     } catch (err) {
