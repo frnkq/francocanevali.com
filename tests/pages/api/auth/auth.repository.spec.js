@@ -1,6 +1,6 @@
-import AuthRepository from "../../../src/api/auth/auth.repository";
+import AuthRepository from "../../../../src/pages/api/auth/auth.repository";
+import { comparePassword } from "../../../../src/helpers/encryptor";
 import { createConnection, closeConnection } from "../db";
-import { comparePassword } from "../../../src/helpers/encryptor";
 import { mockUser } from "./user.mock";
 
 describe("Auth Repository", () => {

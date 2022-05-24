@@ -1,5 +1,5 @@
 import { createMocks } from "node-mocks-http";
-import handlers from '../../src/api/handlers';
+import handlers from '../../../src/pages/api/handlers';
 
 test("All handlers should return 500 if exception is thrown", async ()=>{
   const controller = ()=>{throw new Error();} 
