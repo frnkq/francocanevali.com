@@ -30,13 +30,28 @@ describe("Auth Repository", () => {
     });
 
     test("Create user with required field inserts and returns user", async () => {
-      const { email, password, name, bio } = {
-        email: mockUser.email,
-        password: mockUser.password,
-        name: mockUser.name,
-        bio: mockUser.bio,
-      };
+      const { email, password, name, bio } = mockUser;
       const user = await authRepository.createUser(email, password, name, bio);
+      expect(user).toHaveProperty("email");
+      expect(user).toHaveProperty("password");
+      expect(user).toHaveProperty("name");
+      expect(user).toHaveProperty("bio");
+      expect(user).toHaveProperty("_id");
+      expect(user.email).toBe(email);
+      expect(user.name).toBe(name);
+      expect(user.bio).toBe(bio);
+      expect(user.password).toBe(password);
+    });
+  });
+  describe("Get user by email", () => {
+    test("Get non existent user returns null", async () => {
+      const user = await authRepository.getUserByEmail("inexistant");
+      expect(user).toBe(null);
+    });
+    test("Get existent user returns user", async () => {
+      const { email, password, name, bio } = mockUser;
+      await authRepository.createUser(email, password, name, bio);
+      const user = await authRepository.getUserByEmail(email);
       expect(user).toHaveProperty("email");
       expect(user).toHaveProperty("password");
       expect(user).toHaveProperty("name");
