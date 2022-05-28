@@ -5,7 +5,10 @@ let User = null;
 export default class AuthRepository {
   constructor(database = null) {
     this.database =
-      database || mongoose.createConnection(process.env.MONGODB_URI);
+      database ||
+      mongoose.createConnection(process.env.MONGODB_URI, {
+        socketTimeoutMS: 3000,
+      });
     User = this.database.model("User", userSchema);
   }
 
@@ -30,16 +33,20 @@ export default class AuthRepository {
 
   async getUserWithCredentials(email, password) {
     return new Promise(async (resolve, reject) => {
-      const user = await User.findOne({ email: email });
-      if (!user) {
-        return reject("Invalid email/password");
-      }
-      const passwordMatches = await comparePassword(password, user.password);
-      if (!passwordMatches) {
-        return reject("Invalid email/password");
-      }
-      user.password = undefined;
-      return resolve(user);
+      const user = User.findOne({ email: email }, async (err, user) => {
+        if (err) {
+          return reject(err);
+        }
+        if (!user) {
+          return reject("Invalid email/password");
+        }
+        const passwordMatches = await comparePassword(password, user.password);
+        if (!passwordMatches) {
+          return reject("Invalid email/password");
+        }
+        user.password = undefined;
+        return resolve(user);
+      });
     });
   }
 }

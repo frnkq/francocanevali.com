@@ -6,7 +6,7 @@ describe("Auth Service", () => {
     test("Returns null for non-existing user", async () => {
       const getUserWithCredentialsMock = jest.fn(async () => {
         return new Promise((resolve, reject) => {
-          reject("Invalid email/password");
+          return reject("Invalid email/password");
         });
       });
 
@@ -15,8 +15,9 @@ describe("Auth Service", () => {
       };
 
       const service = new AuthService(AuthRepository);
-      const token = await service.login("username", "password");
-      expect(token).toBe(null);
+      return expect(service.login("username", "password")).rejects.toMatch(
+        "Invalid email/password"
+      );
     });
 
     test("Returns token for existing user", async () => {

@@ -9,15 +9,8 @@ export default class AuthService {
   }
 
   async login(email, password) {
-    try {
-      const user = await this.repository.getUserWithCredentials(
-        email,
-        password
-      );
-      return this.createToken(user);
-    } catch (err) {
-      return null;
-    }
+    const user = await this.repository.getUserWithCredentials(email, password);
+    return this.createToken(user);
   }
 
   async register(email, password, name) {}
