@@ -1,7 +1,10 @@
 import AuthRepository from "../../../../src/pages/api/auth/auth.repository";
-import { comparePassword } from "../../../../src/helpers/encryptor";
 import { createConnection, closeConnection } from "../db";
 import { mockUser } from "./user.mock";
+import {
+  comparePassword,
+  encryptPassword,
+} from "../../../../src/helpers/encryptor";
 
 describe("Auth Repository", () => {
   let authRepository;
@@ -37,7 +40,13 @@ describe("Auth Repository", () => {
         name: mockUser.name,
         bio: mockUser.bio,
       };
-      const user = await authRepository.createUser(email, password, name, bio);
+      const encryptedPass = await encryptPassword(password);
+      const user = await authRepository.createUser(
+        email,
+        encryptedPass,
+        name,
+        bio
+      );
       expect(user).toHaveProperty("email");
       expect(user).toHaveProperty("password");
       expect(user).toHaveProperty("name");
@@ -46,65 +55,7 @@ describe("Auth Repository", () => {
       expect(user.email).toBe(email);
       expect(user.name).toBe(name);
       expect(user.bio).toBe(bio);
-    });
-
-    test("Create a user encrypts password", async () => {
-      const { email, password } = {
-        email: "email@email.com",
-        password: "password",
-      };
-      const user = await authRepository.createUser(email, password);
-      const passwordMatches = await comparePassword(password, user.password);
-      expect(user.password).not.toBe(password);
-      expect(passwordMatches).toBe(true);
-    });
-  });
-
-  describe("getUserWithCredentials()", () => {
-    test("Get user with valid credentials returns user", async () => {
-      const { email, password } = {
-        email: mockUser.email,
-        password: mockUser.password,
-      };
-      await authRepository.createUser(email, password);
-      const user = await authRepository.getUserWithCredentials(email, password);
-      expect(user).toHaveProperty("email");
-      expect(user).toHaveProperty("password");
-      expect(user).toHaveProperty("_id");
-      expect(user.email).toBe(email);
-    });
-
-    test("Get user with invalid email throws Invalid email/password", async () => {
-      const { email, password } = {
-        email: mockUser.email,
-        password: mockUser.password,
-      };
-      await authRepository.createUser(email, password);
-      return expect(
-        authRepository.getUserWithCredentials("bad@email.com", password)
-      ).rejects.toEqual("Invalid email/password");
-    });
-
-    test("Get user with invalid password throws Invalid email/password", async () => {
-      const { email, password } = {
-        email: mockUser.email,
-        password: mockUser.password,
-      };
-      await authRepository.createUser(email, password);
-      return expect(
-        authRepository.getUserWithCredentials(email, "bad password")
-      ).rejects.toEqual("Invalid email/password");
-    });
-
-    test("Get user with invalid email & password throws Invalid email/password", async () => {
-      const { email, password } = {
-        email: mockUser.email,
-        password: mockUser.password,
-      };
-      await authRepository.createUser(email, password);
-      return expect(
-        authRepository.getUserWithCredentials("bad@email.com", "bad password")
-      ).rejects.toEqual("Invalid email/password");
+      expect(user.password).toBe(encryptedPass);
     });
   });
 });

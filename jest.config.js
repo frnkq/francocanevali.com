@@ -7,7 +7,7 @@ module.exports = {
   globalSetup: "<rootDir>/test.js",
   coverageProvider: "v8",
   preset: "@shelf/jest-mongodb",
-  // testMatch: ["**/handlers.spec.js"],
+  // testMatch: ["**/auth.repository.spec.js"],
   modulePathIgnorePatterns: ["posts.repository.spec.js", "test.js"],
   testEnvironment: "node",
   transformIgnorePatterns: ["/node_modules/mongodb-memory-server-core/"],

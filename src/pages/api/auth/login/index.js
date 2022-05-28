@@ -5,10 +5,8 @@ export default async function handleLogin(req, res, controller = null) {
     try {
       const authController = controller || new AuthController();
       await authController.login(req, res);
-      resolve();
     } catch (err) {
       res.status(500).json(err.toString());
-      reject(err);
     }
   });
 }

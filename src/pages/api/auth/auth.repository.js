@@ -7,7 +7,7 @@ export default class AuthRepository {
     this.database =
       database ||
       mongoose.createConnection(process.env.MONGODB_URI, {
-        socketTimeoutMS: 3000,
+        socketTimeoutMS: 10000,
       });
     User = this.database.model("User", userSchema);
   }
@@ -15,34 +15,46 @@ export default class AuthRepository {
   async createUser(email, password, name = null, bio = null) {
     return new Promise(async (resolve, reject) => {
       if (!email || !password) {
-        reject("Email and password are required");
-        return;
+        return reject("Email and password are required");
       }
-      const hashedPassword = await encryptPassword(password);
       let user = new User({
-        email: email,
-        password: hashedPassword,
-        name: name,
-        bio: bio,
+        email,
+        password,
+        name,
+        bio,
       });
       user = (await user.save())._doc;
-      resolve(user);
-      return;
+      return resolve(user);
+    });
+  }
+
+  async getUserByEmail(email) {
+    return new Promise(async (resolve, reject) => {
+      User.findOne({ email: email }, async (err, user) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(user);
+      });
     });
   }
 
   async getUserWithCredentials(email, password) {
     return new Promise(async (resolve, reject) => {
-      const user = User.findOne({ email: email }, async (err, user) => {
+      User.findOne({ email: email }, async (err, user) => {
         if (err) {
           return reject(err);
         }
         if (!user) {
-          return reject("Invalid email/password");
+          return resolve(null);
+        }
+        const incorrectPass = await comparePassword(password, user.password);
+        if (!user || !user.password || incorrectPass) {
+          return resolve(null);
         }
         const passwordMatches = await comparePassword(password, user.password);
         if (!passwordMatches) {
-          return reject("Invalid email/password");
+          return resolve(null);
         }
         user.password = undefined;
         return resolve(user);

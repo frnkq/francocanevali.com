@@ -8,14 +8,20 @@ export default class AuthService {
     }
   }
 
+  // async login(email, password) {
+  //   const user = await this.repository.getUserWithCredentials(email, password);
+  //   return this.createToken(user);
+  // }
+
   async login(email, password) {
-    const user = await this.repository.getUserWithCredentials(email, password);
+    const user = await this.repository.getUserByEmail(email);
     return this.createToken(user);
   }
 
   async register(email, password, name) {}
 
   createToken(user) {
+    if (!user) return null;
     const token = {
       bearer: "asd",
     };
