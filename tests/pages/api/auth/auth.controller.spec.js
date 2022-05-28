@@ -1,7 +1,6 @@
 import { createMocks } from "node-mocks-http";
 import { createConnection, closeConnection } from "../db";
 import AuthController from "../../../../src/pages/api/auth/auth.controller";
-import handleRegister from "../../../../src/pages/api/auth/register";
 import AuthService from "../../../../src/pages/api/auth/auth.service";
 import AuthRepository from "../../../../src/pages/api/auth/auth.repository";
 

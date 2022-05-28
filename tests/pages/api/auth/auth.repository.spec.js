@@ -1,10 +1,6 @@
 import AuthRepository from "../../../../src/pages/api/auth/auth.repository";
 import { createConnection, closeConnection } from "../db";
 import { mockUser } from "./user.mock";
-import {
-  comparePassword,
-  encryptPassword,
-} from "../../../../src/helpers/encryptor";
 
 describe("Auth Repository", () => {
   let authRepository;
@@ -40,13 +36,7 @@ describe("Auth Repository", () => {
         name: mockUser.name,
         bio: mockUser.bio,
       };
-      const encryptedPass = await encryptPassword(password);
-      const user = await authRepository.createUser(
-        email,
-        encryptedPass,
-        name,
-        bio
-      );
+      const user = await authRepository.createUser(email, password, name, bio);
       expect(user).toHaveProperty("email");
       expect(user).toHaveProperty("password");
       expect(user).toHaveProperty("name");
@@ -55,7 +45,7 @@ describe("Auth Repository", () => {
       expect(user.email).toBe(email);
       expect(user.name).toBe(name);
       expect(user.bio).toBe(bio);
-      expect(user.password).toBe(encryptedPass);
+      expect(user.password).toBe(password);
     });
   });
 });

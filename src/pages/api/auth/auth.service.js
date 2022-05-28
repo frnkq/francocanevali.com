@@ -1,4 +1,5 @@
 import AuthRepository from "./auth.repository";
+import { encryptPassword, comparePassword } from "../../../helpers/encryptor";
 export default class AuthService {
   constructor(repository = null) {
     if (repository) {
@@ -8,17 +9,12 @@ export default class AuthService {
     }
   }
 
-  // async login(email, password) {
-  //   const user = await this.repository.getUserWithCredentials(email, password);
-  //   return this.createToken(user);
-  // }
-
   async login(email, password) {
     const user = await this.repository.getUserByEmail(email);
-    return this.createToken(user);
+    const encryptedPass = await encryptPassword(password);
+    const correctPassword = await comparePassword(password, encryptedPass);
+    return correctPassword ? this.createToken(user) : null;
   }
-
-  async register(email, password, name) {}
 
   createToken(user) {
     if (!user) return null;
