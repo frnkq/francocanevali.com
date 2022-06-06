@@ -7,7 +7,12 @@ export const menuItems = [
   },
   {
     name: "Blog",
-    link: "/blog",
+    link: "http://blog.frnkquito.com/",
+  },
+  {
+    name: "Twitter",
+    link: "https://twitter.com/frnkquito",
+    newTab: true,
   },
   {
     name: "Github",
